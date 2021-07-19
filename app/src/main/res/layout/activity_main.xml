@@ -50,6 +50,22 @@
         android:onClick="updateNote"
         android:text="Update Details" />
 
+    <Button
+        android:id="@+id/btnDelfield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="deleteField"
+        android:text="Delete description" />
+
+    <Button
+        android:id="@+id/btnDelnote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="deleteNote"
+        android:text="Delete Note" />
+
     <TextView
         android:id="@+id/tvDetails"
         android:layout_width="wrap_content"
