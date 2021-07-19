@@ -22,6 +22,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -111,6 +112,20 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG, e.toString());
                     }
                 });
+    }
+
+    public void updateNote(View v){
+        String description=etDescription.getText().toString();
+        Map<String,Object> note=new HashMap<>();
+        note.put(KEY_DESCRIPTION,description);
+//        noteRef.set(note);
+        //Above Set method will overwrite document completely as a result by this method
+        //Only mentioned keys will be updated rest will be removed
+        //This can be avoided by adding one more argument given below
+//        noteRef.set(note, SetOptions.merge());
+        //But if there is no element then only those keys are mentioned are added
+        //If we want to update if any is present then below code
+        noteRef.update(note);
     }
 
     public void loadNote(View v){
