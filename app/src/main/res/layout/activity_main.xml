@@ -31,46 +31,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:onClick="saveNote"
-        android:text="Save" />
+        android:onClick="addNote"
+        android:text="Add" />
 
     <Button
         android:id="@+id/btnLoad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:onClick="loadNote"
+        android:onClick="loadNotes"
         android:text="Load" />
 
-    <Button
-        android:id="@+id/btnUpdate"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:onClick="updateNote"
-        android:text="Update Details" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnDelfield"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:onClick="deleteField"
-        android:text="Delete description" />
-
-    <Button
-        android:id="@+id/btnDelnote"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:onClick="deleteNote"
-        android:text="Delete Note" />
-
-    <TextView
-        android:id="@+id/tvDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp" />
-
-
+        <TextView
+            android:id="@+id/tvDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

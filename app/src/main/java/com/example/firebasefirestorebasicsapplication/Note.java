@@ -1,10 +1,24 @@
 package com.example.firebasefirestorebasicsapplication;
 
 public class Note {
-    private String title,description;
+    private String title,description,documentId;
 
     public Note() {
         //Public no arg empty constructor
+    }
+
+    public Note(String title, String description, String documentId) {
+        this.title = title;
+        this.description = description;
+        this.documentId = documentId;
+    }
+
+    public String getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
     }
 
     public Note(String title, String description) {
