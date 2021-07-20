@@ -82,8 +82,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 //Same code used for load button
                 if(documentSnapshot.exists()){
-                    String title=documentSnapshot.getString(KEY_TITLE);
-                    String description=documentSnapshot.getString(KEY_DESCRIPTION);
+                    Note note=documentSnapshot.toObject(Note.class);
+                    String title=note.getTitle();
+                    String description=note.getDescription();
                     tvDetails.setText("Title: "+title+"\nDescription: "+description);
                 }else {
                     //Will show nothing
@@ -97,9 +98,12 @@ public class MainActivity extends AppCompatActivity {
         String title=etTitle.getText().toString();
         String description=etDescription.getText().toString();
 
-        Map<String,Object> note=new HashMap<>();
-        note.put(KEY_TITLE,title);
-        note.put(KEY_DESCRIPTION,description);
+        //Using custom object instead of HashMap
+//        Map<String,Object> note=new HashMap<>();
+//        note.put(KEY_TITLE,title);
+//        note.put(KEY_DESCRIPTION,description);
+
+        Note note=new Note(title,description);
 
         //db.collection("Notebook").document("My first Note")=noteRef
         noteRef.set(note)
@@ -153,8 +157,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if(documentSnapshot.exists()){
-                            String title=documentSnapshot.getString(KEY_TITLE);
-                            String description=documentSnapshot.getString(KEY_DESCRIPTION);
+//                            String title=documentSnapshot.getString(KEY_TITLE);
+//                            String description=documentSnapshot.getString(KEY_DESCRIPTION);
+                            //Using custom object
+                            Note note=documentSnapshot.toObject(Note.class);
+                            String title=note.getTitle();
+                            String description=note.getDescription();
 
 //                            Map<String,Object> note=documentSnapshot.getData();Same as above 2 lines
 
